@@ -1,3 +1,9 @@
 enabled: true
+prefer_fips: false
 migrate:
   enabled: true
+  ignore:
+    files:
+      - "docker/compose/docker-compose.portainer.yml"
+    images:
+      - "docker.io/valkey/valkey:*"
