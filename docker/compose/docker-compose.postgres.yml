@@ -26,12 +26,12 @@
 # documentation.
 services:
   broker:
-    image: docker.io/valkey/valkey:9-alpine
+    image: docker.io/valkey/valkey:9.0-alpine
     restart: unless-stopped
     volumes:
       - redisdata:/data
   db:
-    image: docker.io/library/postgres:18
+    image: docker.io/library/postgres:18.1
     restart: unless-stopped
     volumes:
       - pgdata:/var/lib/postgresql
