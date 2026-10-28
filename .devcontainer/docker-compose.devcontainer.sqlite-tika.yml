@@ -22,7 +22,7 @@
 # in the folder .devcontainer.
 services:
   broker:
-    image: docker.io/library/redis:7
+    image: docker.io/library/redis:7.4
     restart: unless-stopped
     volumes:
       - ./redisdata:/data
@@ -59,7 +59,7 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "chown -R paperless:paperless /usr/src/paperless/paperless-ngx/src/documents/static/frontend && chown -R paperless:paperless /usr/src/paperless/paperless-ngx/.ruff_cache && while sleep 1000; do :; done"
   gotenberg:
-    image: docker.io/gotenberg/gotenberg:8.17
+    image: docker.io/gotenberg/gotenberg:8.37
     restart: unless-stopped
     # The Gotenberg Chromium route is used to convert .eml files. We do not
     # want to allow external content like tracking pixels or even JavaScript.
@@ -68,7 +68,7 @@ services:
       - "--chromium-disable-javascript=true"
       - "--chromium-allow-list=^file:///tmp/.*"
   tika:
-    image: docker.io/apache/tika:3.3.1.0
+    image: docker.io/apache/tika:3.3.2.0
     restart: unless-stopped
 volumes:
   data:
