@@ -22,7 +22,7 @@
 # in the folder .devcontainer.
 services:
   broker:
-    image: docker.io/library/redis:7.4
+    image: cgr.dev/chainguard.edu/redis:7.4
     restart: unless-stopped
     volumes:
       - ./redisdata:/data
